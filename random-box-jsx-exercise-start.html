@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSX Exercise</title>
+    <script src="https://unpkg.com/react@16.0.0-rc.2/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@16.0.0-rc.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/babel">
+    class RandomBox extends React.Component {
+
+      render() {
+
+        const fontSize = Math.floor((Math.random()) * 15 + 12);
+        const color = ['lightgrey', 'red', 'orange', 'gold'];
+        var chosenNumber = Math.floor((Math.random() * 4));
+        const colorChosen = color[chosenNumber];
+        
+
+
+        const divStyle = {
+          background: colorChosen,
+          width: '60%',
+          height: '25%',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'column',
+          fontSize: `${fontSize}px`,
+          color: 'white'
+        };
+
+        return (
+        <div style={divStyle}>
+          <p style={{fontSize: fontSize}}>random Text.</p>
+          <p style={{fontSize: fontSize}}>Random number is {chosenNumber}</p> 
+          <p style={{fontSize: fontSize}}>Chosen Color is {colorChosen}</p>
+        </div>
+        );
+      }
+    }
+
+    ReactDOM.render(<RandomBox />, document.getElementById('app'));
+  </script>
+</body>
+</html>
